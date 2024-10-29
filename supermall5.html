@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SUPERMALL - Gaming Account Store</title>
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a2e;
+            color: white;
+        }
+
+        /* Header Styling */
+        header {
+            background-color: #0f3460;
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 1.2rem;
+        }
+
+        /* Main Store Section */
+        main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #e94560;
+        }
+
+        /* Product Cards Styling */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .product-card {
+            background-color: #16213e;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+        .product-card:hover {
+            transform: scale(1.05);
+        }
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .product-info {
+            padding: 15px;
+        }
+        .product-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+        .product-info p {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        .product-info .price {
+            font-size: 1.5rem;
+            color: #f7f7f7;
+        }
+        .product-info button {
+            padding: 10px 20px;
+            background-color: #e94560;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .product-info button:hover {
+            background-color: #d72343;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #0f3460;
+            color: white;
+            text-align: center;
+            padding: 30px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        /* Social Media Icons Styling */
+        .social-icons {
+            margin: 15px 0;
+        }
+        .social-icons a {
+            margin: 0 10px;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .social-icons a:hover {
+            color: #e94560;
+        }
+
+        /* Modal for Purchase */
+        .modal {
+            display: none; /* Hide modal by default */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #16213e;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            width: 300px;
+            text-align: center;
+        }
+        .modal h3 {
+            margin-bottom: 10px;
+        }
+        .modal button {
+            padding: 10px 20px;
+            background-color: #e94560;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .modal button:hover {
+            background-color: #d72343;
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: none; /* Hide overlay by default */
+            z-index: 999;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>SUPERMALL - Gaming Account Store</h1>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Sell Account</a>
+            <a href="#">Buy Account</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <h2>Gaming Accounts for Sale</h2>
+        <div class="product-grid">
+
+            <!-- Sample Product Card -->
+            <div class="product-card">
+                <img src="https://example.com/game-account.jpg" alt="Gaming Account">
+                <div class="product-info">
+                    <h3>Call of Duty - Elite Account</h3>
+                    <p>Level: 50 | Prestige: 5</p>
+                    <p class="price">$150</p>
+                    <button onclick="showPurchaseModal()">Purchase</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="https://example.com/game-account2.jpg" alt="Gaming Account">
+                <div class="product-info">
+                    <h3>Fortnite - Pro Player Account</h3>
+                    <p>Skins: 200+ | V-Bucks: 5000</p>
+                    <p class="price">$300</p>
+                    <button onclick="showPurchaseModal()">Purchase</button>
+                </div>
+            </div>
+
+            <!-- Add more product cards as needed -->
+        </div>
+    </main>
+
+    <!-- Modal for Purchase -->
+    <div id="purchaseModal" class="modal">
+        <h3>Purchase Information</h3>
+        <p>Phone: 8026725777</p>
+        <p>Payment Method: Opay</p>
+        <p>Account Name: Morning Star Abhuimen</p>
+        <p>Contact via Social Media:</p>
+        <div class="social-icons">
+            <a href="https://facebook.com/seller_profile" target="_blank">Facebook</a>
+            <a href="https://twitter.com/seller_profile" target="_blank">Twitter</a>
+            <a href="https://instagram.com/seller_profile" target="_blank">Instagram</a>
+        </div>
+        <button onclick="closePurchaseModal()">Close</button>
+    </div>
+
+    <!-- Overlay -->
+    <div id="overlay" class="overlay"></div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 SUPERMALL - Your Trusted Gaming Account Marketplace</p>
+        <div class="social-icons">
+            <a href="https://facebook.com/supermall" target="_blank">Facebook</a>
+            <a href="https://twitter.com/supermall" target="_blank">Twitter</a>
+            <a href="https://instagram.com/supermall" target="_blank">Instagram</a>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Modal -->
+    <script>
+        // Function to show the purchase modal and overlay
+        function showPurchaseModal() {
+            document.getElementById('purchaseModal').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        // Function to close the purchase modal and overlay
+        function closePurchaseModal() {
+            document.getElementById('purchaseModal').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        // Close modal when overlay is clicked
+        document.getElementById('overlay').onclick = function() {
+            closePurchaseModal();
+        };
+    </script>
+
+</body>
+</html>
